@@ -21,3 +21,4 @@
 //= require notify.js
 //= require views/productsView.js
 //= require bootbox.min.js
+//= require select2

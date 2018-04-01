@@ -1,0 +1,61 @@
+<div class="modal fade" id="modal-default">
+  <div class="modal-dialog">
+    <div class="modal-content modal-add-product">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><%= t "admin.products.add_product" %></h4>
+      </div>
+      <%= form_for(@product, url: admin_products_path , html: { id: "formGroup" }) do |p| %>
+      <div class="modal-body body-add-product">
+        <div class="form-group">
+          <div class="preview col-md-6"> 
+            <label for="exampleInputFile"><%= t "admin.products.add_picture" %></label>
+              <div >
+                <%= p.file_field :image%>
+              </div>
+          </div>
+          <div class="preview col-md-6">
+            <form>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label "><%= t "admin.products.category_id" %></label>
+                <div class=" text col-sm-10">
+                  <%= p.text_field :category_id, class: "input-text" %>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label"><%= t "admin.products.name" %></label>
+                <div class="col-sm-10">
+                <%= p.text_field :name, class: "input-text" %>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label"><%= t "admin.products.price" %></label>
+                <div class="col-sm-10">
+                <%= p.text_field :price, class: "input-text" %>
+                </div>
+              </div>  
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label"><%= t "admin.products.renting_fee" %></label>
+                <div class="col-sm-10">
+                <%= p.text_field :renting_fee, class: "input-text" %>
+                </div>
+              </div>
+              <div class="form-group">
+                <button type="button" class="btn-back btn btn-default pull-left" data-dismiss="modal"><%= t "admin.products.btn_back" %></button>
+                <%= p.submit t("admin.products.btn_save"), type:"submit", id:"button", class:"btn-save btn btn-primary" %>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <script type="text/javascript">
+        $(function(){
+          var notice = "<%= !flash[:notice].nil? ? flash[:notice].first : '' %>"
+          var type = "<%= !flash[:notice].nil? ? flash[:notice].last : '' %>"
+          $.notify(notice, type );
+        })
+      </script>
+    <% end %>
+  </div>
+</div>

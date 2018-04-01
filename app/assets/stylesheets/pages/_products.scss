@@ -1,0 +1,21 @@
+.btn-add-product {
+  float: right;
+  border: none;
+  background: transparent;
+}
+.modal-add-product {
+  width: 100%;
+  .body-add-product {
+    height: 300px;
+    background: white;
+    .btn-back {
+      border: 1px solid gray;
+    }
+    .input-text {
+      float: right;
+    }
+    .btn-save {
+      float: left;
+    }
+  }
+}

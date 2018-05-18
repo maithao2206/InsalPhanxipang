@@ -60,10 +60,13 @@ ActiveRecord::Schema.define(version: 20180404121816) do
     t.string "name"
     t.string "price"
     t.string "renting_fee"
-    t.string "image"
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 

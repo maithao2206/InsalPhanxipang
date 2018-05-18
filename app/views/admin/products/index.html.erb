@@ -1,9 +1,10 @@
-<div class="content">
-  <div class="select">
-    <%= select_tag 'category', options_for_select(@categories.collect{ |u| [u.name, u.id] }, params[:category_id]),class: "select-box"%>
-    <i class="fa fa-plus-circle fa-3x add"></i>
-  </div>
-  <div id="show">
-    <%= render "form", products: @products %>
-  </div>
+<div class="select">
+  <%= select_tag 'category', options_for_select(@categories.collect{ |u| [u.name, u.id] }, params[:category_id]),class: "select-box"%>
+  <button type="button" class="btn-add-product add" data-toggle="modal" data-target="#modal-default" >
+    <i class="fa fa-plus-circle fa-3x "></i>
+  </button>
 </div>
+<div id="show">
+<%= render "form", products: @products %>
+</div>
+<%= render "new", products: @products %>

@@ -40,9 +40,9 @@ $("#show").on("click", ".bt-delete", function() {
         });
       }
     }
-  });
-  a.find('.modal-content').addClass("modal-confirm");
-  a.find('.modal-header').addClass("custom-header");
-  a.find('.modal-footer').addClass("custom-footer");
-  a.find('.bootbox-body').addClass("custom-body");
+    });
+    a.find('.modal-content').addClass("modal-confirm");
+    a.find('.modal-header').addClass("custom-header");
+    a.find('.modal-footer').addClass("custom-footer");
+    a.find('.bootbox-body').addClass("custom-body");
 })

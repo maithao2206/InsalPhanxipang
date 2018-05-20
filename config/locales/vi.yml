@@ -45,6 +45,7 @@ vi:
     products: "Sản phẩm"
     action: "Tìm kiếm"
     log_out: "Đăng xuất"
+    notice_item: "Bạn có 10 sản phẩm trong giỏ hàng"
   views:
     pagination:
       first: "« Trang Đầu"

@@ -45,6 +45,8 @@ en:
     products: "Products"
     action: "Action"
     log_out: "Log Out"
+    "notice_item": "You have 10 items in Cart"
+
   views:
     pagination:
       first: "« FIRST"

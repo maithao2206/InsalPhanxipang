@@ -35,21 +35,59 @@ $("#show").on("click", ".bt-delete", function() {
           data: {
             "product_id": product_id,
             "category_id": category_id
-      },
-    });
-  }
-}
+
+          },
+        });
+      }
+    }
   });
-a.find('.modal-content').addClass("modal-confirm");
-a.find('.modal-header').addClass("custom-header");
-a.find('.modal-footer').addClass("custom-footer");
-a.find('.bootbox-body').addClass("custom-body");
+  a.find('.modal-content').addClass("modal-confirm");
+  a.find('.modal-header').addClass("custom-header");
+  a.find('.modal-footer').addClass("custom-footer");
+  a.find('.bootbox-body').addClass("custom-body");
 })
-var index = $("#category option:selected").val();
-var url_path = "/admin/products#index";
-$.ajax({
-  url: url_path,
-  type: "GET",
-  dataType: "script",
-  data: { "id": index },
-});
+
+$(".new_product").validate({
+  errorPlacement: function(error, element) {
+    error.insertAfter(element);
+  },
+  rules: {
+    "product[image]": {
+      required: true,
+    },
+    "product[name]": {
+      required: true,
+    },
+    "product[price]": {
+      required: true,
+      number: true,
+      min: 0,
+    },
+    "product[renting_fee]": {
+      required: true,
+      number: true,
+      min: 0,
+    }
+  },
+  messages: {
+    "product[image]": {
+      required: "xin chọn ảnh",
+    },
+    "product[name]": {
+      required: "tên không hợp lệ!",
+    },
+    "product[price]": {
+      required: "giá không hợp lệ",
+      number: "phải là số",
+      min: "không được âm",
+    },
+    "product[renting_fee]": {
+      required: "phí thuê không hợp lệ",
+      number: "phải là số",
+      min: "không được âm",
+    }
+  },
+  onfocusout: function(element) {
+      this.element(element);
+    }
+})

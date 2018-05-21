@@ -14,6 +14,7 @@ class Admin::ProductsController < Admin::ApplicationController
 	end
 	def new
 		@product = Product.new
+		@categories = Category.all
 	end
 	def create
 		if

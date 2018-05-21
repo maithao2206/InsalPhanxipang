@@ -3,19 +3,39 @@
   border: none;
   background: transparent;
 }
+
 .modal-add-product {
   width: 100%;
+
   .body-add-product {
-    height: 300px;
+    height: 350px;
     background: white;
+
     .btn-back {
       border: 1px solid gray;
+      margin-right: 40px;
     }
+
     .input-text {
       float: right;
+      position: relative;
+      margin-bottom: 20px;
+      color: #2A88BC;
+      border:1px solid #2A88BC;
     }
+
     .btn-save {
       float: left;
+      width: 65px;
+    }
+
+    .select-category {
+      height: 30px;
+      margin-left: 34px;
+      width: 175px;
+      background: #fff;
+      color: #2A88BC;
+      border:1px solid #2A88BC;
     }
   }
 }

@@ -1,0 +1,8 @@
+.show-data:disabled {
+  border: none;
+  background: transparent;
+}
+.show-data:enabled {
+  background-color: $color-input-text-edit;
+  cursor: default;
+}

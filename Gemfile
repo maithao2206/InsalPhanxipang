@@ -49,7 +49,7 @@ gem "bootstrap4-kaminari-views"
 gem "pry"
 gem "select2-rails"
 gem "paperclip", "~> 6.0"
-
+gem "ransack"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

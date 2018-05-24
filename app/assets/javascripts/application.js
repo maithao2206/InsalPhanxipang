@@ -24,4 +24,4 @@
 //= require select2
 //= require bootstrap-daterangepicker
 //= require bootstrap-datepicker
-//= require models/bills.js
+//= require views/billsView.js

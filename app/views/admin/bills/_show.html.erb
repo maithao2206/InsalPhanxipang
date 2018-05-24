@@ -3,32 +3,35 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <i class="fa fa-edit icon-edit"></i>
+          <button class="btn-edit" onclick="enableEdit()">
+             <i class="fa fa-edit icon-edit"></i>
+          </button>
           <div class="box-body no-padding info-bill">
             <div class="row row-info">
               <div class="col-xs-6">
                 <strong><%= t "admin.bills.name" %>:</strong>
-                <input type="text" value=<%= Bill.first.user.name %> />
+                <input class="show-data show-data-edit" type="text" value=<%= Bill.first.user.name %> disabled />
               </div>
               <div class="col-xs-6">
                 <strong><%= t "admin.bills.start_renting" %>:</strong>
-                <input type="text" data-provide='datepicker' class='date-picker' value= <%= Bill.first.start_renting %> />
+                <input class="show-data" type="text" data-provide='datepicker' class='date-picker' value= <%= Bill.first.start_renting %> disabled />
               </div>
               <div class="col-xs-6">
                 <strong><%= t "admin.bills.phone_number" %>:</strong>
-                <input type="text" value=<%= Bill.first.user.phone %> />
+                <input class="show-data" type="text" value=<%= Bill.first.user.phone %> disabled />
               </div>
               <div class="col-xs-6">
                 <strong><%= t "admin.bills.end_renting" %>:</strong>
-                <input type="text" data-provide='datepicker' class='date-picker' value= <%= Bill.first.end_renting %> />
+                <input class="show-data" type="text" data-provide='datepicker' class='date-picker' value= <%= Bill.first.end_renting %> disabled />
               </div>
               <div class="col-xs-6">
                 <strong><%= t "admin.bills.personal_card" %>:</strong>
-                <input type="text" value=<%= Bill.first.user.personal_card %> />
+                <input class="show-data" type="text" value=<%= Bill.first.user.personal_card %> disabled />
               </div>
               <div class="col-xs-6">
                 <strong><%= t "admin.bills.extend_renting" %>:</strong>
-                <%#= Bill.first.start_renting %>
+                <input class="show-data" type="text" disabled />
+              </div>
               </div>
             </div>
         <div class="modal-body">
@@ -64,7 +67,7 @@
         <!-- Modal footer -->
         <div class="modal-footer footer-bill">
           <button type="button" class="btn btn-danger" data-dismiss="modal"><%= t "admin.bills.btn_pay" %></button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal"><%= t "admin.bills.btn_cancel" %></button>
+          <button type="button" class="btn btn-danger btn-cancel" onclick="disableEdit()" data-dismiss="modal"><%= t "admin.bills.btn_cancel" %></button>
         </div>
       </div>
     </div>

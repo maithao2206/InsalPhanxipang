@@ -31,7 +31,7 @@
           <div class="media">
             <div class="media-left">
               <a href="#" class="ad-click-event">
-                <img src="https://taha.vn/images/thumbnails/380/475/detailed/11/Hollister-xanh-reu.jpg?t=1522224244" alt="Material Dashboard Pro" class="media-object">
+                <img src="<%= category.image %>" alt="Material Dashboard Pro" class="media-object">
               </a>
             </div>
           </div>
@@ -45,17 +45,55 @@
     <div class="col-sm-12 col-md-4 add-category__btn" style= "height: 450px;">
       <div class="container">
         <!-- Trigger the modal with a button -->
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> </button>
+        <button type="button" class="btn btn-info btn-lg btn__add" data-toggle="modal" data-target="#newCategory"><i class="fa fa-plus"></i> </button>
+        <div class="modal fade" id="newCategory" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><%=t "admin.categories.create_title"%></h4>
+              </div>
+              <div class="modal-body">
+                <div class = "container">
+                  <%= form_for(@category, url: admin_categories_path) do |form| %>
+                    <div class = "row">
+                      <div class = "col-md-3">
+                        <div class = "row"><%= form.text_field :name, :placeholder => t("admin.categories.name"),
+                          class:"category__name_field" %></div>
+                        <div class = "row">
+                          <label for="exampleInputFile"><%=t "admin.categories.add_image"%></label>
+                          <%= form.file_field :image, type:"file", onchange: "loadFile(event)"%>
+                        </div>
+                      </div>
+                      <div class="preview col-md-3">
+                        <img id = "output" style = "height: 100px" />
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                  <%= form.submit t("admin.categories.save"), class:"btn-save" %>
+                  <% end %>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><%=t "admin.categories.close"%></button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 </div>
 <div class="row paginate">
   <%= paginate @categories, theme: 'twitter-bootstrap-4' %>
 </div>
+<<<<<<< 80f3529ba77caa69e7f03c001b4a372350feaf46
 <script type = "text/javascript">
   $(function() {
     var notice = "<%= !flash[:notice].nil? ? flash[:notice].first : ''%>"
     var type = "<%= !flash[:notice].nil? ? flash[:notice].last : ''%>"
     $.notify(notice, type);
   })
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+  };
 </script>

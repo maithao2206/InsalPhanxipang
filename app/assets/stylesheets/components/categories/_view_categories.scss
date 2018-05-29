@@ -23,13 +23,41 @@
 }
 .add-category__btn {
   .container {
-
-    .btn {
+    .category__name_field {
+      font-size: 20px;
+      margin-bottom: 15px;
+      height: 30px
+    }
+    .btn__add {
       background: none;
       color: black;
       border-color: black;
       font-size: 100px;
       transform: translate(50%,50%);
     }
+  .modal-footer {
+    .btn-save {
+      background-color: #f4f4f4;
+      color: #444;
+      border-color: #ddd;
+      border-radius: 3px;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      border: 1px solid transparent;
+      display: inline-block;
+      margin-bottom: 0;
+      font-weight: normal;
+      text-align: center;
+      vertical-align: middle;
+      touch-action: manipulation;
+      cursor: pointer;
+      background-image: none;
+      border: 1px solid transparent;
+      white-space: nowrap;
+      padding: 6px 12px;
+      font-size: 14px;
+      line-height: 1.428571429;
+    }
+  }
   }
 }

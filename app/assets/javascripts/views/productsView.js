@@ -11,7 +11,7 @@ $("#category").on("change", function() {
   });
 })
 
-$("#show").on("click", ".bt-delete", function() {
+$("#product").on("click", ".bt-delete", function() {
   var product_id = $(this).attr("id-button");
   var url = "/admin/products/" + product_id;
   var nameproduct = $("[id-name =" + product_id + "]").text();
@@ -47,7 +47,6 @@ $("#show").on("click", ".bt-delete", function() {
   a.find('.modal-footer').addClass("custom-footer");
   a.find('.bootbox-body').addClass("custom-body");
 })
-
 $(".new_product").validate({
   errorPlacement: function(error, element) {
     error.insertAfter(element);

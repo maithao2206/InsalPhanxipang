@@ -43,6 +43,11 @@ en:
       del_confirmation: "Would you like to delete "
       del: "Delete"
       close: "Close"
+      name: "Name"
+      save: "Save"
+      create_title: "Add a new Category"
+      close: "Close"
+      add_image: "Add Image"
   layouts:
     categories: "Categories"
     bills: "Bills"

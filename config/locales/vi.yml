@@ -43,6 +43,11 @@ vi:
       del_confirmation: "Bạn có muốn xóa "
       del: "Xóa"
       close: "Đóng"
+      name: "Tên danh mục"
+      save: "Lưu"
+      create_title: "THÊM DANH MỤC MỚI"
+      close: "Đóng"
+      add_image: "Chọn ảnh"
   layouts:
     categories: "Danh Mục"
     bills: "Hóa Đơn"

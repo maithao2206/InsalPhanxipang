@@ -85,15 +85,14 @@
 <div class="row paginate">
   <%= paginate @categories, theme: 'twitter-bootstrap-4' %>
 </div>
-<<<<<<< 80f3529ba77caa69e7f03c001b4a372350feaf46
 <script type = "text/javascript">
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+  };
   $(function() {
     var notice = "<%= !flash[:notice].nil? ? flash[:notice].first : ''%>"
     var type = "<%= !flash[:notice].nil? ? flash[:notice].last : ''%>"
     $.notify(notice, type);
   })
-  var loadFile = function(event) {
-    var output = document.getElementById('output');
-    output.src = URL.createObjectURL(event.target.files[0]);
-  };
 </script>

@@ -13,7 +13,6 @@ user = User.create(
   role:"1")
 
 #Create category
-data_category = ["Ao dai", "Vest", "Ao phong"]
 data_category.each do |item|
   Category.create(name: item)
 end

@@ -38,8 +38,13 @@ en:
       btn_pay: "Pay"
       btn_cancel: "Cancel"
       total_money: "Total money"
+    categories:
+      del_confirm_title: "Confirmation"
+      del_confirmation: "Would you like to delete "
+      del: "Delete"
+      close: "Close"
   layouts:
-    categories: "Categorisdgdfgdfes"
+    categories: "Categories"
     bills: "Bills"
     insights: "Insights"
     products: "Products"

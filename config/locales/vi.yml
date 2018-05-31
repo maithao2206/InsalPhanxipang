@@ -38,6 +38,11 @@ vi:
       btn_pay: "Trả"
       btn_cancel: "Thoát"
       total_money: "Thành tiền"
+    categories:
+      del_confirm_title: "Xác nhận xóa danh mục"
+      del_confirmation: "Bạn có muốn xóa "
+      del: "Xóa"
+      close: "Đóng"
   layouts:
     categories: "Danh Mục"
     bills: "Hóa Đơn"

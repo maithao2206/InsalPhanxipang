@@ -1,11 +1,32 @@
 <div class="row docs-premium-template">
-  <% @categories.each do |c| %>
+  <% @categories.each do |category| %>
     <div class="col-sm-12 col-md-4">
       <div class="box box-solid">
         <div class="box-body" style= "height: 450px;">
           <div class = "btn-group categories-controller">
             <button type="button" class="btn btn-default" data-toggle="modal" data-target="#editCategory"><i class="fa fa-edit"></i></button>
-            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#deleteCategory"><i class="fa fa-trash"></i></button>
+            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#deleteCategory<%=category.id%>"><i class="fa fa-trash"></i></button>
+            <div class="modal fade" id="deleteCategory<%=category.id%>" role="dialog">
+              <div class="modal-dialog">
+              <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><%= t "admin.categories.del_confirm_title" %></h4>
+                  </div>
+                  <div class="modal-body">
+                    <p><%= t "admin.categories.del_confirmation"%><%=category.name%>?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <%= link_to admin_category_path(category),method: :delete,
+                    data: {} do %>
+                      <button type="button" class="btn btn-default" data-dismiss="modal"><%= t "admin.categories.del" %></button>
+                    <% end %>
+                      <button type="button" class="btn btn-default" data-dismiss="modal"><%= t "admin.categories.close" %></button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="media">
             <div class="media-left">
@@ -15,7 +36,7 @@
             </div>
           </div>
           <h4 class = "category-title">
-            <%= c.name %>
+            <%= category.name %>
           </h4>
         </div>
       </div>
@@ -31,3 +52,10 @@
 <div class="row paginate">
   <%= paginate @categories, theme: 'twitter-bootstrap-4' %>
 </div>
+<script type = "text/javascript">
+  $(function() {
+    var notice = "<%= !flash[:notice].nil? ? flash[:notice].first : ''%>"
+    var type = "<%= !flash[:notice].nil? ? flash[:notice].last : ''%>"
+    $.notify(notice, type);
+  })
+</script>

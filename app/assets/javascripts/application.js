@@ -20,6 +20,7 @@
 //= require views/loginView.js
 //= require notify.js
 //= require views/productsView.js
+//= require views/productDetailsView.js
 //= require bootbox.min.js
 //= require select2
 //= require bootstrap-daterangepicker

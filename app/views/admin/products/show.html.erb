@@ -1,0 +1,58 @@
+<div class="container">
+  <section class="content">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box box-product">
+          <div class="box-body row-product">
+            <img src="<%= @product.image %>" alt="">
+            <table class="table-product table table-hover table-striped">
+              <tbody>
+                <tr>
+                  <td> <%= t "admin.products.name" %> </td>
+                  <td> <%= @product.name %> </td>
+                </tr>
+                <tr>
+                  <td> <%= t "admin.products.price" %> </td>
+                  <td> <%= @product.price %> </td>
+                </tr>
+                <tr>
+                  <td> <%= t "admin.products.renting_fee" %> </td>
+                  <td> <%= @product.renting_fee %> </td>
+                </tr>
+                <tr>
+                  <td> <%= t "admin.products.color" %> </td>
+                  <td>
+                    <% @product_size.each do |c| %>
+                      <%= c.color %>
+                    <% end %>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="button">
+              <div>
+                <%= link_to (t("admin.products.add_to_cart")), method: :post, remote: true, class: "btn btn-primary btn-add" do %>
+                  <span>
+                    <i class="fa fa-cart-plus"></i>
+                    <span><%= t "admin.products.add_to_cart" %></span>
+                  </span>
+                <% end %>
+              </div>
+              <div class="btn-list">
+                <div>
+                  <%= link_to (t("admin.products.back")), admin_products_path, class: "btn btn-primary btn-back" %>
+                </div>
+                <div>
+                  <%= link_to (t("admin.products.edit")), edit_admin_product_path, class: "btn btn-primary btn-edit" %>
+                </div>
+                <div>
+                  <button class="btn btn-primary btn-delete" id-button="<%= @product.id %>"><%= t "admin.products.delete" %></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

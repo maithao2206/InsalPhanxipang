@@ -1,6 +1,8 @@
 class Admin::ProductsController < Admin::ApplicationController
-	before_action :get_product, only: [:show]
-	def index
+
+  before_action :get_product, only: [:show]
+
+  def index
 		@product = Product.new
 		@products = Product.all
 		@categories = Category.all
@@ -8,14 +10,30 @@ class Admin::ProductsController < Admin::ApplicationController
 			@products = Product.find_by_products(params[:category_id]).page(params[:page]).per(12)
 		else
 			@products = Product.find_by_products(1).page(params[:page]).per(12)
-		end
-	end
-	def show
-	end
+    end
+  end
+
+  def show
+    @product = Product.find_by id: params[:id]
+    @product_size = @product.product_sizes
+  end
+
+  def edit
+    @product = Product.find_by id: params[:id]
+    @product_size = @product.product_sizes
+  end
+
+  def update
+    Product.update(params[:id], { name: params[:name], price: params[:price], renting_fee: params[:renting_fee] })
+    ProductSize.update(params[:id], { color: params[:color] })
+    redirect_to admin_product_path
+  end
+
 	def new
 		@product = Product.new
 		@categories = Category.all
-	end
+  end
+
 	def create
 		if
 			@product = Product.create(product_params)
@@ -23,24 +41,30 @@ class Admin::ProductsController < Admin::ApplicationController
 		else
 		  redirect_to new_admin_product_path, :notice => ["Tạo thất bại!", "error"]
 		end
-	end
-	def destroy
-		@products = Product.find_by id: params[:product_id]
-		if @products.destroy
+  end
+
+  def destroy
+
+    binding.pry
+
+    @products = Product.find_by id: params[:product_id]
+    if @products.destroy
 			flash[:notice] = [t("admin.products.notice_delete"), "success"]
 			if params[:category_id] != nil
-				@products = Product.find_by_products(params[:category_id]).page(params[:page]).per(12)
+        @products = Product.find_by_products(params[:category_id]).page(params[:page]).per(12)
 			else
-				@products = Product.find_by_products(1).page(params[:page]).per(12)
+        @products = Product.find_by_products(1).page(params[:page]).per(12)
 			end
 			params[:id] = ""
-		end
-	end
+    end
+  end
+
 	private
 		def get_product
 			@product = Product.find_by id: params[:id]
 		end
-		def product_params
-			params.require(:product).permit(:image, :name, :price, :renting_fee, :category_id)
-		end
+    def product_params
+      params.require(:product).permit(:image, :name, :price, :renting_fee, :category_id)
+    end
+
 end

@@ -1,0 +1,46 @@
+<div class="col-md-12">
+  <div class="box box-info">
+    <div class="box-header with-border">
+    </div>
+    <%= form_tag admin_product_path, :method => "patch", :class => "form-horizontal" do %>
+      <div class="box-body">
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label"> <%= t "admin.products.name" %> </label>
+          <div class="col-sm-8">
+            <%= text_field_tag :name, params[:name], type: "text", class: "form-control", placeholder: (t("admin.products.enter_name")), value: @product.name %>
+          </div>
+          <div class="col-md-2">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label"> <%= t "admin.products.price" %> </label>
+          <div class="col-sm-8">
+            <%= text_field_tag :price, params[:price], type: "text", class: "form-control", placeholder: (t("admin.products.enter_price")), value: @product.price %>
+          </div>
+          <div class="col-md-2">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label"> <%= t "admin.products.renting_fee" %> </label>
+          <div class="col-sm-8">
+            <%= text_field_tag :renting_fee, params[:renting_fee], type: "text", class: "form-control", placeholder: (t("admin.products.enter_renting_fee")), value: @product.renting_fee %>
+          </div>
+          <div class="col-md-2">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label"> <%= t "admin.products.color" %> </label>
+          <div class="col-sm-8">
+            <%= text_field_tag :color, params[:color], type: "text", class: "form-control", placeholder: (t("admin.products.enter_color")), value: @product_size.collect{|c| [c.color]} %>
+          </div>
+          <div class="col-md-2">
+          </div>
+        </div>
+      </div>
+      <div class="box-footer">
+        <%= link_to (t("admin.products.back")), admin_product_path,class: "btn btn-default btn-warning" %>
+        <%= submit_tag (t("admin.products.edit")), type: "submit", name: "commit", class: "btn btn-info pull-right load-alert" %>
+      </div>
+    <% end %>
+  </div>
+</div>

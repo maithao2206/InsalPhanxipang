@@ -1,0 +1,28 @@
+<h1>Show all employee</h1>
+<h2>Add employee</h2>
+<h3>...</h3>
+<%= link_to  "New", new_employee_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Password_Confirm</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td> <%= employee.name %> </td>
+        <td> <%= employee.email %> </td>
+        <td> <%= employee.password %> </td>
+        <td> <%= employee.password_confirm %> </td>
+        <td> <%= link_to  "show", employee_path(employee.id) %> </td>
+        <td> <%= link_to  "edit", edit_employee_path(employee.id) %> </td>
+        <td> <%= link_to  "destroy", employee, method: :delete %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -10,6 +10,7 @@ $("#category").on("change", function() {
     },
   });
 })
+
 $("#show").on("click", ".bt-delete", function() {
   var product_id = $(this).attr("id-button");
   var url = "/admin/products/" + product_id;
@@ -17,7 +18,7 @@ $("#show").on("click", ".bt-delete", function() {
   var category_id = $("#category option:selected").val();
   var a = bootbox.confirm({
     title: "Xác nhận xóa",
-    message: "Bạn có muốn xóa sản phẩm " + nameproduct + " này không?",
+    message: "Bạn có muốn xóa sản phẩm" + nameproduct + "này không?",
     buttons: {
       cancel: {
         label: '<i class="fa fa-times"></i> không'

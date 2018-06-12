@@ -1,10 +1,8 @@
-
-#Create User
 data_category = ["Ao Dai", "Vest", "Ao Phong", "Quan Dui"]
 data_product = ["Váy đuôi cá" , "Váy cưới đuôi mèo", "Váy cưới kim sa"]
 # Create User
 user = User.create(
-  name:"insal",
+  name:"phong",
   password:"12345678",
   email:"admin@insal.com",
   address:"hue",
@@ -12,21 +10,50 @@ user = User.create(
   personal_card: "CMND",
   role:"1")
 
+user = User.create(
+  name:"insal",
+  password:"12345678",
+  email:"admin@insal.com",
+  address:"hue",
+  phone:"01664304688",
+  personal_card: "CMND",
+  role:"2")
+
+  user = User.create(
+    name:"tan",
+    password:"12345678",
+    email:"admin@insal.com",
+    address:"hue",
+    phone:"01664304688",
+    personal_card: "CMND",
+    role:"3")
+
 #Create category
 data_category.each do |item|
   Category.create(name: item)
 end
 
-#Create bill
-(1..20).to_a.each do |item|
-Bill.create(
+bill = Bill.create(
   start_renting: "27/09/2018",
   end_renting: "22/11/2018",
   total: "39.000",
   status:"hết hạn",
   user_id: 1)
- end
 
+
+bill = Bill.create(
+  start_renting: "15/03/2018",
+  end_renting: "22/11/2018",
+  total: "10.000",
+  status:"hết hạn",
+  user_id: 2)
+
+bill = Bill.create(
+  start_renting: "15/03/2018",
+  end_renting: "22/11/2018",
+  total: "10.000",
+  status:"hết hạn",
+  user_id: 3)
 (1..200).to_a.each do |item|
     Product.create(
         name: "hihi",
@@ -35,16 +62,6 @@ Bill.create(
         # image:"ccccc",
         category_id: 1)
   end
-(1..20).to_a.each do |item|
-bill = Bill.create(
-        start_renting: "27/09/2018",
-        end_renting: "22/11/2018",
-        total: "39.000",
-        status:"hết hạn",
-        user_id: 1)
- end
-# Create bill
-bill = Bill.create(start_renting: "2016-10-05", end_renting: "", total: "1234", status: "0", user_id: 2)
 r = Random.new
 arr = ["http://aocuoibangchau.vn/multidata/ao-cuoi-bang-chau-1.jpg",
   "http://toplist.vn/images/800px/anh-vien-ao-cuoi-valentine-155953.jpg",

@@ -1,30 +1,52 @@
-<% @products.each_with_index  do |item, index| %>
-  <% if (index == 0 || index % 4 == 0) %>
-    <div class="row row-item">
-    <% end %>
-    <div class="col-md-3 col-sm-6 col-xs-12 item">
-      <div class="image" style="background-image: url(<%= item.image %>);">
-        <i class="fa fa-times-circle fa-2x delete bt-delete" id-button="<%= item.id %>"></i>
-        <i class="fa fa-edit fa-2x edit"></i>
-      </div>
-      <div class="title">
-        <a class="link" href="products/<%= item.id %>">
-          <p id-name="<%= item.id %>"><%= item.name %></p>
-        </a>
+<%= form_for([:admin, @product], remote: true, :html => { :role => "form" }) do |p| %>
+<div class="modal-body body-add-product ">
+  <div class="form-group">
+    <div class="preview col-md-6">
+      <label for="exampleInputFile"><%= t "admin.products.add_picture" %></label>
+      <div >
+        <%= p.file_field :image%>
       </div>
     </div>
-    <% if ((index + 1) % 4 == 0 || index == (products.size - 1)) %>
+    <div class="preview col-md-6">
+      <form class="add-form">
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label "><%= t "admin.products.category_name" %></label>
+          <div class=" text col-sm-10">
+            <%= p.select :category_id, @categories.collect { |u| [ u.name, u.id ] },{}, {class: "select-category"} %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label"><%= t "admin.products.name" %></label>
+          <div class="col-sm-10">
+            <%= p.text_field :name, class: "input-text" %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label"><%= t "admin.products.price" %></label>
+          <div class="col-sm-10">
+            <%= p.text_field :price, class: "input-text" %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label"><%= t "admin.products.renting_fee" %></label>
+          <div class="col-sm-10">
+            <%= p.text_field :renting_fee, class: "input-text" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="button" class="btn-back btn btn-default pull-left" data-dismiss="modal"><%= t "admin.products.btn_back" %></button>
+          <%= p.submit t("admin.products.btn_save"), class:" btn btn-primary btn-save" %>
+        </div>
+      </form>
     </div>
-  <% end %>
-<% end %>
-<div class="row paginate">
-  <%= paginate products, theme: "twitter-bootstrap-4" %>
+  </div>
 </div>
+<%end%>
 <script type="text/javascript">
-  $(function () {
-    var notice = "<%= !flash[:notice].nil? ? flash[:notice].first : '' %>"
-    var type = "<%= !flash[:notice].nil? ? flash[:notice].last : '' %>"
-    $.notify(notice, type);
-    <% flash[:notice] = "" %>
-  })
+$(function () {
+console.log("aa");
+var notice = "<%= !flash[:notice].nil? ? flash[:notice].first : '' %>"
+var type = "<%= !flash[:notice].nil? ? flash[:notice].last : '' %>"
+$.notify(notice, type);
+})
 </script>

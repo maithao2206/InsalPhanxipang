@@ -1,0 +1,19 @@
+<div class = "container">
+  <%= form_for([:admin, @category], remote: true, :html => { :role => "form" }) do |form| %>
+    <div class = "row">
+      <div class = "col-md-3">
+        <div class = "row"><%= form.text_field :name, :placeholder => t("admin.categories.name"),
+          class:"category__name_field" %></div>
+        <div class = "row">
+          <label for="exampleInputFile"><%=t "admin.categories.add_image"%></label>
+          <%= form.file_field :image, type:"file", onchange: "loadFile(event)"%>
+        </div>
+      </div>
+      <div class="preview col-md-3">
+        <img id = "output" style = "height: 100px" />
+      </div>
+    </div>
+    <%= form.submit @category.new_record? ? "Create " : "Update", type:"submit", class: "btn btn-primary" %>
+    <button type="button" class="btn btn-default" data-dismiss="modal"><%=t "admin.categories.close"%></button>
+<% end %>
+</div>

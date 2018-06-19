@@ -1,19 +1,22 @@
 class Admin::CategoriesController < Admin::ApplicationController
-  before_action :load_category, only: :destroy
+  before_action :load_category, only: [:destroy, :edit, :update]
   def index
     @categories = Category.page(params[:page]).per(5)
-    @category = Category.new
   end
 
   def new
-    redirect_to admin_categories_path
+    @category = Category.new
   end
 
   def create
-    if @category = Category.create(category_params)
-      redirect_to admin_categories_path, :notice => ["Tạo thành công!", "success"]
-    else
-      redirect_to new_admin_category_path, :notice => ["Tạo thất bại!", "error"]
+    respond_to do |format|
+      if @category = Category.create(category_params)
+        format.json { head :no_content }
+        format.js
+      else
+        format.json { render json: @category.errors.full_messages,
+                            status: :unprocessable_entity }
+      end
     end
   end
 
@@ -25,6 +28,22 @@ class Admin::CategoriesController < Admin::ApplicationController
       redirect_to admin_categories_path, :notice => ["Xóa không thành công", "error"]
     end
   end
+
+  def edit
+  end
+
+  def update
+    respond_to do |format|
+     if @category.update(category_params)
+       format.json { head :no_content }
+       format.js
+     else
+       format.json { render json: @category.errors.full_messages,
+                                  status: :unprocessable_entity }
+     end
+   end
+ end
+
   private
 
   def load_category

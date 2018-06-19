@@ -3,48 +3,46 @@
     <div class="box">
       <div class="box-header">
         <h3 class="box-title">Danh sách hóa đơn</h3>
+        <%= search_form_for @q, url: admin_bills_path(@q) do |f| %>
         <div class="input-group input-group-sm search-box" style="width: 150px;">
-          <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+          <%= f.text_field :user_name_start, type: "text",class: "form-control pull-right", placeholder: "Search" %>
           <div class="input-group-btn">
-            <button type="submit" class="btn btn-default">
-              <i class="fa fa-search"></i>
-            </button>
+              <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
           </div>
+        <% end %>
         </div>
       </div>
-    </div>
-    <div class="box-body table-responsive no-padding table">
-      <table class="table table-hover">
-        <tr>
-          <th>STT</th>
-          <th>Ngày thuê</th>
-          <th>Ngày trả</th>
-          <th>Tổng phí</th>
-          <th>Hiện trạng</th>
-          <th>Xem chi tiết</th>
-        </tr>
-        <% @bills.each do |bill| %>
+      <div class="box-body table-responsive no-padding table">
+        <table class="table table-hover">
+          <tr>
+            <th>STT</th>
+            <th>Tên khách hàng</th>
+            <th>Ngày thuê</th>
+            <th>Tổng phí</th>
+            <th>Hiện trạng</th>
+            <th>Xem chi tiết</th>
+          </tr>
+          <% @bills.each do |bill| %>
           <tr>
             <td><%= bill.id %></td>
-            <td><%= bill.end_renting %></td>
+            <td><%= bill.user.name %></td>
             <td><%= bill.start_renting %></td>
             <td><%= bill.total %></td>
-            <td>
-              <span class="label label-success"><%= bill.status %></span></td>
-            <td><%= link_to "", admin_bill_path(bill.id),:method => :get, remote: true, class: "btn btn-default fa fa-eye", "data-toggle" => "modal", "data-target" => "#modal-default" %></td>
+            <td><span class="label label-success"><%= bill.status %></span></td>
+            <td><button type="button" class="btn btn-default" id-bt = <%= bill.id %> data-toggle="modal" data-target="#modal-default"><i class="fa fa-eye" aria-hidden="true"></i></button></td>
           </tr>
-        <% end %>
-      </table>
-    </div>
-    <div class="box-footer clearfix paginate">
-      <p>
-        <%= page_entries_info @bills %>
-        <%= paginate @bills, theme: "twitter-bootstrap-4" %>
-      </p>
+          <% end %>
+        </table>
+      </div>
+      <div class="box-footer clearfix paginate">
+        <p>
+          <%= page_entries_info @bills %>
+          <%= paginate @bills, theme: "twitter-bootstrap-4" %>
+        </p>
+      </div>
     </div>
   </div>
 </div>
-</div>
-<tbody id="bills">
-<%= render "modalshow" %>
+ <tbody id="bills">
+  <%= render "show" %>
 </tbody>

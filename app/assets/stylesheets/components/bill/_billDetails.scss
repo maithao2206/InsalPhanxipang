@@ -1,72 +1,35 @@
 .table-bill {
   margin: 20px 20px 0;
-  width: 100%;
-  display: block;
   max-width: 800px;
-  overflow: auto;
-  border-top: 1px solid black;
-  border-left: 1px solid black;
-  border-bottom: 1px solid black;
-  text-align: center;
 }
-
-.table-head {
-  display: block;
-  margin: 0;
-}
-
-.table-body {
-  max-height: 100px;
-  display: block;
-  width: 100%;
-}
-
-.table-bill > thead > tr {
-  width: 100%;
-  height: 30px;
-  margin: 0;
-  padding: 0;
-}
-
-.table-bill > tbody > tr > td {
+.table-bill>tbody>tr>td {
   border: 1px solid black;
 }
-
-.table-bill > thead > tr > th {
-  text-align: center;
+.table-bill>tbody>tr>th {
   border: 1px solid black;
-  margin: 0;
-  padding: 0;
 }
-
-.remove-bill {}
-
+.remove-bill {
+  display: none;
+}
 .remove-bill:hover {
   display: inline-block;
   color: blue;
 }
-
 .btn-pay:hover {
   background: red;
 }
-
 .date-picker {
   border: none;
-  background: none;
 }
-
 .footer-bill {
   border-top: 1px solid transparent;
 }
-
 .info-bill {
   margin-top: 40px;
 }
-
 .row-info {
   margin-left: 20px;
 }
-
 .total-bill {
   margin: 30px 10px 0 0;
 }

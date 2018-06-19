@@ -14,7 +14,7 @@
               </div>
               <div class="col-xs-6">
                 <strong><%= t "admin.bills.start_renting" %>:</strong>
-                <input class="show-data" type="text" data-provide='datepicker' class='date-picker' value= <%= Bill.first.start_renting %> disabled />
+                <input class="show-data" type="text" data-provide='datepicker' value= <%= Bill.first.start_renting %> disabled />
               </div>
               <div class="col-xs-6">
                 <strong><%= t "admin.bills.phone_number" %>:</strong>
@@ -22,7 +22,7 @@
               </div>
               <div class="col-xs-6">
                 <strong><%= t "admin.bills.end_renting" %>:</strong>
-                <input class="show-data" type="text" data-provide='datepicker' class='date-picker' value= <%= Bill.first.end_renting %> disabled />
+                <input class="show-data" type="text" data-provide='datepicker' value= <%= Bill.first.end_renting %> disabled />
               </div>
               <div class="col-xs-6">
                 <strong><%= t "admin.bills.personal_card" %>:</strong>
@@ -45,14 +45,6 @@
                 <th><%= t "admin.bills.total" %></th>
                 <th><%= t "admin.bills.remove" %></th>
               </tr>
-                <tr>
-                  <td><%= Product.first.id %></td>
-                  <td><%= Product.first.name %></td>
-                  <td><%= ProductBill.first.renting_quantity %></td>
-                  <td><%= ProductBill.first.renting_fee_product %></td>
-                  <td><%= ProductBill.first.renting_quantity*ProductBill.first.renting_fee_product.to_i %></td>
-                  <td><a class="remove-bill"><%= t "admin.bills.remove" %></a></td>
-                </tr>
             </table>
           </div>
           <div class="row total-bill">

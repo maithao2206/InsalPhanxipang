@@ -1,21 +1,24 @@
 <% @products.each_with_index  do |item, index| %>
-  <% if (index == 0 || index % 4 == 0) %>
+  <% if (index == 0 || index % 5 == 0) %>
     <div class="row row-item">
     <% end %>
     <div id="product_<%= @product.id %>" class="col-md-3 col-sm-6 col-xs-12 item">
-      <div class="image" style="background-image: url(<%= item.image %>);">
-        <i class="fa fa-times-circle fa-2x delete bt-delete" id-button="<%= item.id %>"></i>
-          <%= link_to  edit_admin_product_path(item), class: "btn-add-product edit", remote: true do %>
-            <i class="fa fa-edit fa-2x "></i>
+      <a href="" class="link">
+        <div class="image" style="background-image: url(<%= item.image %>);">
+          <span class="title">
+              <p class= "text text-price" id-name="<%= item.id %>"><%= item.price %></p>
+              <p class= "text" id-name="<%= item.id %>"><%= item.name %></p>
+          </span>
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-default delete bt-delete" id-button="<%= item.id %>"><i class="fa fa-trash"></i></button>
+          <%= link_to  edit_admin_product_path(item), class: "btn btn-default edit", remote: true do %>
+            <i class="fa fa-edit "></i>
           <%end%>
-      </div>
-      <div class="title">
-        <a class="link" href="#">
-          <p id-name="<%= item.id %>"><%= item.name %></p>
-        </a>
-      </div>
+        </div>
+      </a>
     </div>
-    <% if ((index + 1) % 4 == 0 || index == (products.size - 1)) %>
+    <% if ((index + 1) % 5 == 0 || index == (products.size - 1)) %>
     </div>
   <% end %>
 <% end %>

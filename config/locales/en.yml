@@ -57,6 +57,7 @@ en:
       create_title: "Add a new Category"
       close: "Close"
       add_image: "Add Image"
+      total_fee: "Total fee"
   layouts:
     categories: "Categories"
     bills: "Bills"

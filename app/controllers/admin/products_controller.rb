@@ -2,7 +2,6 @@ class Admin::ProductsController < Admin::ApplicationController
 	before_action :get_product, only: [:show, :edit, :update, :destroy]
 	before_action :load_categories, only: [:index, :edit, :new, :update]
 	def index
-		binding.pry
 		@product = Product.new
 		@products = Product.all
 		@categories = Category.all

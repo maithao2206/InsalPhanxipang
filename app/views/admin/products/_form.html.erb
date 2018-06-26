@@ -44,9 +44,8 @@
 <%end%>
 <script type="text/javascript">
 $(function () {
-console.log("aa");
-var notice = "<%= !flash[:notice].nil? ? flash[:notice].first : '' %>"
-var type = "<%= !flash[:notice].nil? ? flash[:notice].last : '' %>"
-$.notify(notice, type);
+  var notice = "<%= !flash[:notice].nil? ? flash[:notice].first : '' %>"
+  var type = "<%= !flash[:notice].nil? ? flash[:notice].last : '' %>"
+  $.notify(notice, type);
 })
 </script>

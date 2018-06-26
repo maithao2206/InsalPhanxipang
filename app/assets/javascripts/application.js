@@ -19,11 +19,7 @@
 //= require vendor/adminlte.min
 //= require views/loginView.js
 //= require notify.js
-//= require views/productsView.js
-//= require views/productDetailsView.js
 //= require bootbox.min.js
 //= require select2
 //= require bootstrap-daterangepicker
 //= require bootstrap-datepicker
-//= require views/billsView.js
-//= require models/bills.js

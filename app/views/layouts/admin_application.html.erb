@@ -3,7 +3,8 @@
   <head>
     <title>InsalPhanxipang</title>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -15,7 +16,6 @@
       </section>
     </div>
     <%= render  "layouts/footer" %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script type="text/javascript">
       $(function(){
         var notice = "<%= !flash[:notice].nil? ? flash[:notice].first : '' %>"
@@ -23,5 +23,6 @@
         $.notify(notice, type );
       })
     </script>
+    <%= javascript_include_tag 'application_commont' %>
   </body>
 </html>

@@ -2,9 +2,7 @@
 $('#modal').modal("show");
 
 // Add the dialog title
-$('#modal h4').html('<i class="glyphicon glyphicon-plus"></i> Add New Category');
+$('#modal h4').html('<i class="glyphicon glyphicon-plus"></i><%= t "admin.categories.create_title" %>');
 
 // Render the new form
 $('.modal-body').html('<%= j render("form") %>');
-
-

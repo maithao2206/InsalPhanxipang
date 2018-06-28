@@ -54,10 +54,11 @@ en:
       close: "Close"
       name: "Name"
       save: "Save"
-      create_title: "Add a new Category"
+      create_title: "ADD A NEW CATEGORY"
       close: "Close"
       add_image: "Add Image"
       total_fee: "Total fee"
+      edit_category: "EDIT CATEGORY"
   layouts:
     categories: "Categories"
     bills: "Bills"

@@ -58,6 +58,7 @@ vi:
       close: "Đóng"
       add_image: "Chọn ảnh"
       total_fee: "Tổng phí"
+      edit_category: "SỬA DANH MỤC"
   layouts:
     categories: "Danh Mục"
     bills: "Hóa Đơn"

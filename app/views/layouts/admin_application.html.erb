@@ -7,22 +7,22 @@
     <%= javascript_include_tag 'application' %>
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
-    <div class="wrapper">
-      <%= render "layouts/header" %>
-      <%= render "layouts/side-bar" %>
-      <div class="content-wrapper">
-        <section class="content">
-          <%= yield %>
-        </section>
-      </div>
-      <%= render "layouts/footer" %>
-      <script type="text/javascript">
-        $(function () {
-          var notice = "<%= !flash[:notice].nil? ? flash[:notice].first : '' %>"
-          var type = "<%= !flash[:notice].nil? ? flash[:notice].last : '' %>"
-          $.notify(notice, type);
-        })
-      </script>
-      <%= javascript_include_tag 'application_commont' %>
-    </body>
-  </html>
+    <div class="wrapper wrapper-bgr">
+    <%= render  "layouts/header" %>
+    <%= render  "layouts/side-bar" %>
+    <div class="content-wrapper category-bgr">
+      <section class="content">
+        <%= yield %>
+      </section>
+    </div>
+    <%= render  "layouts/footer" %>
+    <script type="text/javascript">
+      $(function(){
+        var notice = "<%= !flash[:notice].nil? ? flash[:notice].first : '' %>"
+        var type = "<%= !flash[:notice].nil? ? flash[:notice].last : '' %>"
+        $.notify(notice, type );
+      })
+    </script>
+    <%= javascript_include_tag 'application_commont' %>
+  </body>
+</html>

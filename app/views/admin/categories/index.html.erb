@@ -1,26 +1,11 @@
 <div class="row docs-premium-template" id="categories">
+  <button type="button" class="btn btn-default btn-add-category" data-target="#modal-default">
+    <%= link_to "Thêm danh mục", new_admin_category_path, remote: true, class: "" %>
+  </button>
+  <hr>
   <%= render @categories %>
-    <div class="col-sm-12 col-md-4 add-category__btn" style= "height: 450px;">
-      <div class="container">
-        <!-- Trigger the modal with a button -->
-        <div class = "well">
-          <%= link_to "Thêm", new_admin_category_path, remote: true, class: "" %>
-        </div>
-      </div>
-    </div>
 </div>
 <%= render  "modal" %>
 <div class="row paginate">
   <%= paginate @categories, theme: 'twitter-bootstrap-4' %>
 </div>
-<script type = "text/javascript">
-  var loadFile = function(event) {
-    var output = document.getElementById('output');
-    output.src = URL.createObjectURL(event.target.files[0]);
-  };
-  $(function() {
-    var notice = "<%= !flash[:notice].nil? ? flash[:notice].first : ''%>"
-    var type = "<%= !flash[:notice].nil? ? flash[:notice].last : ''%>"
-    $.notify(notice, type);
-  })
-</script>

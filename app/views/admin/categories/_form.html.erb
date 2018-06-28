@@ -10,10 +10,23 @@
         </div>
       </div>
       <div class="preview col-md-3">
-        <img id = "output" style = "height: 100px" />
+        <img id = "output"/>
       </div>
     </div>
-    <%= form.submit @category.new_record? ? "Create " : "Update", type:"submit", class: "btn btn-primary" %>
-    <button type="button" class="btn btn-default" data-dismiss="modal"><%=t "admin.categories.close"%></button>
+    <div class="modal-footer btn-group-category">
+      <%= form.submit @category.new_record? ? "Create " : "Update", type:"submit", class: "btn btn-primary btn-category" %>
+      <button type="button" class="btn btn-default btn-category" data-dismiss="modal"><%=t "admin.categories.close"%></button>
+    </div>
 <% end %>
 </div>
+<script type = "text/javascript">
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+  };
+  $(function() {
+    var notice = "<%= !flash[:notice].nil? ? flash[:notice].first : ''%>"
+    var type = "<%= !flash[:notice].nil? ? flash[:notice].last : ''%>"
+    $.notify(notice, type);
+  })
+</script>

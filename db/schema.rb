@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20180628114657) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
-    t.integer "status"
+    t.integer "status", default: 1
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 

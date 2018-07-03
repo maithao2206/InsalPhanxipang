@@ -1,7 +1,7 @@
 class Admin::CategoriesController < Admin::ApplicationController
   before_action :load_category, only: [:destroy, :edit, :update]
   def index
-    @categories = Category.page(params[:page]).per(5)
+    @categories = Category.order(id: :desc).page(params[:page]).per(5)
   end
 
   def new

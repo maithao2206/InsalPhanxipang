@@ -2,16 +2,25 @@ class Admin::ProductsController < Admin::ApplicationController
 	before_action :get_product, only: [:show, :edit, :update, :destroy]
 	before_action :load_categories, only: [:index, :edit, :new, :update]
 	def index
-		@product = Product.new
-		@products = Product.all
-		@categories = Category.all
-		if params[:category_id] != nil
-			@products = Product.where(status: :active).find_by_products(params[:category_id]).order(id: :desc).page(params[:page]).per(12)
+		if(params[:search].present?)
+			q = params[:search]
+			products = Product.where(status: :active).search(name_cont: q).result.page(params[:page]).order(id: :desc).per(12)
+			@products = products
+			@action = true
+			respond_to do |format|
+				format.js
+				format.html
+			end
 		else
-			@products = Product.where(status: :active).find_by_products(1).page(params[:page]).order(id: :desc).per(12)
-    end
-  end
-
+			@products = Product.all.page(params[:page]).per(12)
+			@categories = Category.all
+			if params[:category_id] != nil
+				@products = Product.where(status: :active).find_by_products(params[:category_id]).order(id: :desc).page(params[:page]).per(12)
+			else
+				@products = Product.where(status: :active).find_by_products(1).page(params[:page]).order(id: :desc).per(12)
+	    end
+		end
+	end
 	def new
 		@product = Product.new
   end

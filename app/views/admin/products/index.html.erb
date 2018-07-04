@@ -1,10 +1,17 @@
-<div class="select">
-  <%= select_tag 'category', options_for_select(@categories.collect{ |u| [u.name, u.id] }, params[:category_id]),class: "select-box"%>
-    <%= link_to  new_admin_product_path, class: "btn-add-product add", remote: true do %>
-      <i class="fa fa-plus-circle fa-3x "></i>
-    <%end%>
-</div>
+<% if @action.blank? %>
+  <div class="select">
+    <%= select_tag 'category', options_for_select(@categories.collect{ |u| [u.name, u.id] }, params[:category_id]),class: "select-box"%>
+      <%= link_to  new_admin_product_path, class: "btn-add-product add", remote: true do %>
+        <i class="fa fa-plus-circle fa-3x "></i>
+      <%end%>
+  </div>
+<% else %>
+  <%= render "search" %>
+<% end %>
 <div id="product">
 <%= render "product", products: @products %>
+<div class="row paginate">
+<%= paginate @products, theme: "twitter-bootstrap-4" %>
+</div>
 </div>
 <%= render "formModal" %>

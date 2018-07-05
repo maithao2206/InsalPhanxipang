@@ -1,0 +1,11 @@
+<div class="results-header">
+  <i class="fa fa-lightbulb-o	icon-result-header"></i>
+  <% if @products.blank? %>
+    <span class="__text-result-header">Không tìm thấy kết quả cho từ
+       <span class="__text-result-header--highlight">"<%= "#{params[:search]}" %></span>"
+    </span>
+  <% else %>
+    <span class="__text-result-header">Có <%= "#{@products.size}" %> kết quả cho từ
+      <span class="__text-result-header--highlight">"<%= "#{params[:search]}" %>"</span>
+    </span>
+  <% end %>

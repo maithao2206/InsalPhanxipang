@@ -1,0 +1,13 @@
+.icon-result-header {
+  font-size: 23px;
+  color: orange;
+  padding: 10px;
+}
+.results-header {
+  .__text-result-header {
+    font-size: 17px;
+    &--highlight {
+        color: #ff5722;
+      }
+  }
+}

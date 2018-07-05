@@ -8,10 +8,16 @@
       <span class="sr-only">Toggle navigation</span>
     </a>
     <div class="input-group input-group--custom">
-      <div class="input-group-btn">
-        <button type="button" class="btn btn-danger"><%= t "layouts.action" %></button>
-      </div>
-      <input type="text" class="form-control">
+      <%= form_tag admin_products_path, method: :get,
+        class: "input-group-btn", id: "livesearch_form" do %>
+          <%= text_field_tag :search, params[:search],
+            class: "form-control",
+            placeholder: "Search...",
+            "data-toggle": "dropdown", "aria-hidden": :true,
+            autocomplete: :off, required: true, id: "livesearch_input" %>
+         <%= button_tag type: :submit, class: "btn btn-danger" do %><%= t "layouts.action" %>
+        <% end %>
+      <% end %>
     </div>
     <div class="navbar-custom-menu locate-logout">
       <ul class="nav navbar-nav">

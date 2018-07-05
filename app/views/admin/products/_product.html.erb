@@ -1,8 +1,8 @@
 <% @products.each_with_index  do |item, index| %>
   <% if (index == 0 || index % 5 == 0) %>
-    <div class="row row-item">
+  <div class="row row-item">
     <% end %>
-    <div id="product_<%= @product.id %>" class="col-md-3 col-sm-6 col-xs-12 item">
+    <div class="col-md-3 col-sm-6 col-xs-12 item">
       <a href="#" class="link">
         <div class="image" style="background-image: url(<%= item.image %>);">
           <span class="title">
@@ -16,17 +16,14 @@
           </button>
           <%= link_to edit_admin_product_path(item), class: "btn btn-default edit", remote: true do %>
           <i class="fa fa-edit "></i>
-        <%end%>
-      </div>
-    </a>
+          <%end%>
+        </div>
+      </a>
+    </div>
+    <% if ((index + 1) % 5 == 0 || index == (@products.size - 1)) %>
   </div>
-  <% if ((index + 1) % 5 == 0 || index == (products.size - 1)) %>
-  </div>
+  <% end %>
 <% end %>
-<% end %>
-<div class="row paginate">
-<%= paginate products, theme: "twitter-bootstrap-4" %>
-</div>
 <script type="text/javascript">
 $(function () {
   var notice = "<%= !flash[:notice].nil? ? flash[:notice].first : '' %>"
